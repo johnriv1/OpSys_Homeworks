@@ -716,7 +716,7 @@ int main( int argc, char** argv )
 		perror( "udp bind() failed" );
 		return EXIT_FAILURE;
 	}
-	/* 5 is number of waiting clients */
+	/* 32 is number of waiting clients */
 	if ( listen( tcp_sock, 32 ) == -1 )
 	{
 		perror( "listen() failed" );
@@ -753,7 +753,7 @@ int main( int argc, char** argv )
 		FD_ZERO( &readfds );
 	/*following line will add fd as one of the descripters that we're interested in listening on*/
 		FD_SET( udp_sock, &readfds );	 /* listener socket, fd 3 */
-		FD_SET( tcp_sock, &readfds );	 /* listener socket, fd 3 */
+		FD_SET( tcp_sock, &readfds );	 /* listener socket, fd 4 */
 		//printf( "Set FD_SET to include listener fd %d\n", tcp_sock );
 
 		/* initially, this for loop does nothing; but once we have */
